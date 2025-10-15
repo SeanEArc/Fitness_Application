@@ -1,5 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/src/main/resources/application.properties
+
+
 # Environment-dependent path to Maven home directory
 /mavenHomeManager.xml
