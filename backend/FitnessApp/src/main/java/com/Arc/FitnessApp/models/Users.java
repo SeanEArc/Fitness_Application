@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 // FIRST TIME USING LAMBOK SO LOTS OF ANNOTATIONS
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 @Getter // Generates getters for all fields
 @Setter // Generates setters for all fields
 @NoArgsConstructor // Generates a no-argument constructor

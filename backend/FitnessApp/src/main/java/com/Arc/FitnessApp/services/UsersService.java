@@ -26,6 +26,11 @@ public class UsersService {
         return usersRepository.findById(id);
     }
 
+    public Users findByUsername(String username) {
+        return usersRepository.findByUsername(username);
+    }
+
+
     public List<Users> getAllUsers() {
         return usersRepository.findAll();
     }
