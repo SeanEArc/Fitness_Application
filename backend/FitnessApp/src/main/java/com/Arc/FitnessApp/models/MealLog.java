@@ -30,9 +30,10 @@ public class MealLog {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "DailyLoggedFood_id")
+    @JoinColumn(name = "daily_logged_food_id", nullable = false)
     private DailyLoggedFood dailyLoggedFood;
 
+    @Column(name = "meal_type", nullable = false)
     private String mealType;
 
 

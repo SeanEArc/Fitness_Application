@@ -38,4 +38,8 @@ public class DailyLoggedFoodService {
         dailyLoggedFoodRepository.deleteById(id);
     }
 
+
+    public Optional<DailyLoggedFood> getLogById(Long id) {
+        return dailyLoggedFoodRepository.findById(id);
+    }
 }
