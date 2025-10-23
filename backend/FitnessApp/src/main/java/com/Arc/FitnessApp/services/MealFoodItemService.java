@@ -1,5 +1,6 @@
 package com.Arc.FitnessApp.services;
 
+import com.Arc.FitnessApp.models.FoodItem;
 import com.Arc.FitnessApp.models.MealFoodItem;
 import com.Arc.FitnessApp.models.MealLog;
 import com.Arc.FitnessApp.repositories.MealFoodItemRepository;
@@ -33,8 +34,10 @@ public class MealFoodItemService {
         return mealFoodItemRepository.findByMealLogId(mealLogId);
     }
 
-    // NEED A SERVICE METHOD TO GET MEAL LOG BY FOOD ITEM AND CUSTOM MEAL
-
+    // NEED A SERVICE METHOD TO GET MEAL LOG BY CUSTOM MEAL
+    public List<MealFoodItem> getMealFoodItemsByFoodItem(FoodItem foodItem) {
+        return mealFoodItemRepository.findByFoodItem(foodItem);
+    }
 
     public MealFoodItem saveMealFoodItem(MealFoodItem mealFoodItem) {
         return mealFoodItemRepository.save(mealFoodItem);

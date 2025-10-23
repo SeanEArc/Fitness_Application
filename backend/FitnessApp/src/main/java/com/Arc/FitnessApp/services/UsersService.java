@@ -27,19 +27,23 @@ public class UsersService {
     }
 
     public Users findByUsername(String username) {
+
         return usersRepository.findByUsername(username);
     }
 
 
     public List<Users> getAllUsers() {
+
         return usersRepository.findAll();
     }
 
     public Users saveUser(Users users) {
+
         return usersRepository.save(users);
     }
 
     public void deleteUser(Long id) {
+
         usersRepository.deleteById(id);
     }
 

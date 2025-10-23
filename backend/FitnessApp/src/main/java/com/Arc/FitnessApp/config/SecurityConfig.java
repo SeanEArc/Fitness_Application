@@ -14,7 +14,8 @@ public class SecurityConfig {   // 👈 This is the class declaration
     @Bean   // 👈 Defines a Spring bean (a reusable object managed by Spring)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())   // disable CSRF (for testing)
+                .cors(cors -> {}) // Enables CORS handling
+                .csrf(csrf -> csrf.disable())  // disable CSRF (for testing)
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()) // allow all requests
                 .formLogin(form -> form.disable())  // disable login forms
                 .httpBasic(basic -> basic.disable()); // disable basic auth

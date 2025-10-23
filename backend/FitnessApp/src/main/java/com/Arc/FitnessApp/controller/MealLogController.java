@@ -62,17 +62,25 @@ public class MealLogController {
 
     @PutMapping("update-meal-log/id/{id}")
     public ResponseEntity<MealLog> updateMealLog(@PathVariable long id, @RequestBody MealLog updatedMealLog) {
-        Optional<MealLog> existingMealLog = mealLogService.getMealLogById(id);
+        Optional<MealLog> existingMealLogOpt  = mealLogService.getMealLogById(id);
 
-        if (existingMealLog.isPresent()) {
-            MealLog meallog = existingMealLog.get();
-            meallog.setMealType(updatedMealLog.getMealType());
-            // meallog.setFoodItems(updatedMealLog.getFoodItems());
-            MealLog savedMealLog = mealLogService.saveMealLog(meallog);
-            return ResponseEntity.ok(savedMealLog);
-        } else {
+
+        if(existingMealLogOpt .isEmpty()){
             return ResponseEntity.notFound().build();
         }
+
+        MealLog existingMealLog = existingMealLogOpt.get();
+
+        if (updatedMealLog.getMealType() != null) {
+            existingMealLog.setMealType(updatedMealLog.getMealType());
+        }
+
+        if (updatedMealLog.getDailyLoggedFood() != null) {
+            existingMealLog.setDailyLoggedFood(updatedMealLog.getDailyLoggedFood());
+        }
+
+        MealLog savedMealLog = mealLogService.saveMealLog(existingMealLog);
+        return ResponseEntity.ok(savedMealLog);
     }
 
 

@@ -38,11 +38,12 @@ public class MealFoodItem {
     @JsonBackReference
     private MealLog mealLog;
 
-// GOING TO FINISH THIS ONCE I COMPLETE FOOD_ITEM MODEL AND ITEMS
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "food_item_id")
-//    private FoodItem foodItem;
-//
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "food_item_id")
+    private FoodItem foodItem;
+
+// GOING TO FINISH THIS ONCE I COMPLETE CUSTOM MEAL
+
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "custom_meal_id")
 //    private CustomMeal customMeal

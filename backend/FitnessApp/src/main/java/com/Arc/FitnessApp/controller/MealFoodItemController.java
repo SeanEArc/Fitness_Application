@@ -23,6 +23,7 @@ public class MealFoodItemController {
         this.mealLogService = mealLogService;
     }
 
+    // GET ALL MEAL FOOD ITEMS
     @GetMapping
     public List<MealFoodItem> getAllMealFoodItems() {
         return mealFoodItemService.getAllMealFoodItems();
@@ -49,6 +50,7 @@ public class MealFoodItemController {
 
     }
 
+
     // POST Method
     @PostMapping("/meal-log/{mealLogId}")
     public ResponseEntity<MealFoodItem> createMealFoodItem(@PathVariable Long mealLogId,
@@ -74,8 +76,10 @@ public class MealFoodItemController {
 
         MealFoodItem mealFoodItem = existingItem.get();
         mealFoodItem.setServings(updatedItem.getServings());
-//        mealFoodItem.setFoodItem(updatedItem.getFoodItem());
-//        mealFoodItem.setCustomMeal(updatedItem.getCustomMeal());
+
+        if (updatedItem.getFoodItem() != null){
+            mealFoodItem.setFoodItem(updatedItem.getFoodItem());
+        }
 
         MealFoodItem savedItem = mealFoodItemService.saveMealFoodItem(mealFoodItem);
         return ResponseEntity.ok(savedItem);
